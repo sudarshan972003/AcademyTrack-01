@@ -18,6 +18,8 @@ pip install django
 pip install requests
 ```
 
+## How to Run
+
 **Set Up the Database**:
     ```
     python manage.py migrate
@@ -28,19 +30,12 @@ pip install requests
     python manage.py createsuperuser
     ```
 
-**Collect Static Files**:
-    ```
-    python manage.py collectstatic
-    ```
-
-## How to Run
-
-1. **Start the Development Server**:
+**Start the Development Server**:
     ```
     python manage.py runserver
     ```
 
-2. **Access the Application**:
+**Access the Application**:
     Open your web browser and go to `http://127.0.0.1:8000/`.
 
 ## Project Structure
