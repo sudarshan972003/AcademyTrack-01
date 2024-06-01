@@ -19,24 +19,24 @@ pip install requests
 ```
 
 **Set Up the Database**:
-    ```bash
+    ```
     python manage.py migrate
     ```
 
 **Create a Superuser**:
-    ```bash
+    ```
     python manage.py createsuperuser
     ```
 
 **Collect Static Files**:
-    ```bash
+    ```
     python manage.py collectstatic
     ```
 
 ## How to Run
 
 1. **Start the Development Server**:
-    ```bash
+    ```
     python manage.py runserver
     ```
 
