@@ -78,7 +78,6 @@ pip install requests
 ## CSS Styling
 
 - **styles.css**: Contains the styles for the project.
-- 
 
 ## Acknowledgements
 
