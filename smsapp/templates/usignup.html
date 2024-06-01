@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+</head>
+<body>
+<center>
+    <div class="container">
+        <br><br>
+        <h2>Sign Up Page</h2>
+        <form method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <input type="text" name="un" id="username" placeholder="Enter Username" required/>
+            <br><br>
+            <input type="password" name="pw1" id="password1" placeholder="Enter password" required/>
+            <br><br>
+            <input type="password" name="pw2" id="password2" placeholder="Confirm password" required/>
+            <br><br>
+            <input type="submit" value="Sign Up"/>
+        </form>
+        <h2 id="msg">{{ msg }}</h2>
+        <button onclick="window.location.href='/'">Login</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password1 = document.getElementById("password1").value;
+            var password2 = document.getElementById("password2").value;
+
+            if (!username || !password1 || !password2) {
+                document.getElementById("msg").innerText = "Please fill in all fields.";
+                return false;
+            }
+
+            if (password1 !== password2) {
+                document.getElementById("msg").innerText = "Passwords do not match.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</center>
+</body>
+</html>

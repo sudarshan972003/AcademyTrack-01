@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+</head>
+<body>
+<center>
+    <div class="container">
+    <h1>Welcome to Student Management System</h1>
+    <br/>
+    <div class="location-info">
+        <p>Your Location: {{ location }}</p>
+        <p>Temperature: {{ temperature }}°C</p>
+    </div>
+    <br/>
+    <ul>
+        <button onclick="window.location.href='{% url 'addstudent' %}'">Add Student</button>
+<br/><br/>
+        <button onclick="window.location.href='{% url 'showstudent' %}'">Show Students</button>
+<br/><br/>
+        <button onclick="window.location.href='{% url 'updatestudent' %}'">Update Student</button>
+<br/><br/>
+        <button onclick="window.location.href='{% url 'deletestudent' %}'">Delete Student</button>
+	<br/><br/>
+	<button class="logout-btn" onclick="window.location.href='{% url 'ulogout' %}'">Logout</button>
+    </ul>
+    </div>
+</center>
+</body>
+</html>

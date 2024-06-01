@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+</head>
+<body>
+<center>
+    <div class="container">
+    <h1>Delete Student</h1>
+    <form method="post" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <label for="roll_number">Roll Number:</label>
+	<br/>
+        <input type="number" id="roll_number" name="roll_number" min="0" required><br>
+	<br/>
+        <button type="submit">Delete</button>
+    </form>
+	<h2 id="error_message">{{ error_message }}</h2>
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+
+    <script>
+        function validateForm() {
+            var roll_number = document.getElementById("roll_number").value;
+
+            if (roll_number < 0) {
+                alert("Roll number cannot be negative");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    </div>
+</center>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+</head>
+<body>
+<center>
+    <div class="container">
+    <h1>Add Student</h1>
+    <form method="post" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+	<br/>
+        <input type="text" id="name" name="name" pattern="[A-Za-z]{2,}" title="Name should contain only alphabets and have minimum 2 characters" required><br>
+	<br/>
+        <label for="roll_number">Roll Number:</label>
+	<br/>
+        <input type="number" id="roll_number" name="roll_number" min="0" required><br>
+	<br/>
+        <label for="marks">Marks:</label>
+	<br/>
+        <input type="number" id="marks" name="marks" min="0" max="100" required><br>
+	<br/>
+        <button type="submit">Save</button>
+    </form>
+	<h2 id="error_message">{{ error_message }}</h2>
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var roll_number = document.getElementById("roll_number").value;
+            var marks = document.getElementById("marks").value;
+
+            if (!/^[A-Za-z]{2,}$/.test(name)) {
+                alert("Name should contain only alphabets and have minimum 2 characters");
+                return false;
+            }
+
+            if (roll_number < 0) {
+                alert("Roll number cannot be negative");
+                return false;
+            }
+
+            if (marks < 0 || marks > 100) {
+                alert("Marks should be between 0 and 100");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    </div>
+</center>
+</body>
+</html>

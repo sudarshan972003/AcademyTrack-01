@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+
+</head>
+<body>
+<center>
+    <div class="container">
+        <br><br>
+        <h2>Login Page</h2>
+        <form method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <input type="text" name="un" id="username" placeholder="Enter Username" required/>
+            <br><br>
+            <input type="password" name="pw" id="password" placeholder="Enter password" required/>
+            <br><br>
+            <input type="submit" value="Login"/>
+        </form>
+        <h2 id="msg">{{ msg }}</h2>
+        <button onclick="window.location.href='/usignup'">Sign Up</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (!username || !password) {
+                document.getElementById("msg").innerText = "Please fill in all fields.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</center>
+</body>
+</html>
