@@ -1,4 +1,4 @@
-# Student Management System ( SMS )
+# AcademyTrack ( Student Management System )
 
 A web-based application built using Django that allows users to manage student records. The application supports user authentication, and functionalities to add, view, update, and delete student records. It also displays location and weather information for logged-in users.
 
