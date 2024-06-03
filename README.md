@@ -20,14 +20,17 @@ pip install requests
 
 ## How to Run
 
-**Set Up the Database**:
-    ```
-    python manage.py migrate
-    ```
-
 **Create a Superuser**:
     ```
     python manage.py createsuperuser
+    ```
+
+**Set Up the Database**:
+    ```
+    python manage.py makemigrations
+    ```
+    ```
+    python manage.py migrate
     ```
 
 **Start the Development Server**:
